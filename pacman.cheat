@@ -1,0 +1,186 @@
+% pacman 参照 apt, ArchLinux
+
+# 安装软件包, 相当于 `apt install <pkg_name>`
+sudo pacman -S '<pkg_name>'
+
+# 移除软件包, 相当于 `apt remove <pkg_name>`
+sudo pacman -Rs '<pkg_name_installed>'
+
+# 搜索软件包, 相当于 `apt search <keyword>`
+sudo pacman -Ss '<keyword>'
+
+# 更新软件包, 相当于 `apt update && apt upgrade <pkg_name>`
+sudo pacman -Syu '<pkg_name>'
+
+# 清理所有本地缓存的软件包, 相当于 `apt autoclean` 或者 `apt clean`
+sudo pacman -Sc
+
+# 清理所有本地缓存的软件包, 相当于 `apt autoclean` 或者 `apt clean`
+sudo pacman -Scc
+
+# 移除已经不被依赖的依赖项, 相当于 `apt autoremove`
+sudo pacman -Qdtq | pacman -Rs -
+
+# 移除已经不存在于任何软件仓库的软件包, 相当于 `aptitude purge '~o'`
+sudo pacman -Qmq | pacman -Rs -
+
+# 将依赖项标记为明确需要, 即在自动清理时, 即使改依赖项不被任何其他软件包需要也不会被清理, 相当于 `apt-mark manual <pkg_name>`
+sudo pacman -D --asexplicit '<pkg_name>'
+
+# 将软件包作为依赖项安装, 但不标记为明确需要的依赖项, 相当于 `apt-mark auto <pkg_name>`
+sudo pacman -S --asdeps '<pkg_name>'
+
+# 只下载软件包而不进行安装或解包, 相当于 `apt install --download-only <pkg_name>` 或者 `apt download <pkg_name>`
+sudo pacman -Sw '<pkg_name>'
+
+# 显示pacman的操作记录, 相当于 `less /var/log/dpkg.log`
+sudo less /var/log/pacman.log
+
+# 查询系统信息, 相当于 `apt-cache stats`
+sudo less /var/lib/pacman/local
+
+# 查询软件包信息, 相当于 `apt show <pkg_name>` 或者 `apt-cache policy <pkg_name>`
+sudo pacman -Si '<pkg_name>'
+
+# 查询软件包信息, 相当于 `apt show <pkg_name>` 或者 `apt-cache policy <pkg_name>`
+sudo pacman -Qi '<pkg_name>'
+
+# 查询本地软件包的信息, 相当于 `dpkg -s <pkg_name>` 或者 `aptitude show <pkg_name>`
+sudo pacman -Qi '<pkg_name>'
+
+# 查询仓库软件包的信息, 相当于 `apt-cache show <pkg_name>` 或者 `aptitude show <pkg_name>`
+sudo pacman -Si '<pkg_name>'
+
+# 查询某个本地软件包包含了哪些文件, 相当于 `dpkg -L <pkg_name>`
+sudo pacman -Ql '<pkg_name>'
+
+# 查询某个仓库软件包包含了哪些文件, 相当于 `apt-file list <pkg_name>`
+sudo pacman -Fl '<pkg_name>'
+
+# 查询某个文件是哪个软件包提供的, 相当于 `dpkg -S <file_name>` 或者 `dlocate <file_name>`
+sudo pacman -Qo '<file_name>'
+
+# 查询软件包中包含的文件, 相当于 `dpkg-query -L <pkg_name>`
+sudo pacman -Ql '<pkg_name>'
+
+# 查询软件包中包含的文件, 相当于 `dpkg-query -L <pkg_name>`
+sudo pacman -Fl '<pkg_name>'
+
+# 查询当前文件是哪个软件包提供的, 相当于 `apt-file search <file_name>`
+sudo pacman -F '<file_name>'
+
+# 查询软件包的更新历史, 相当于 `apt-get changelog <pkg_name>`
+sudo pacman -Qc '<pkg_name>'
+
+# 列出存在更新版本的软件包, 相当于 `apt-get upgrade <- N`
+sudo pacman -Qu
+
+# 列出所有由软件包管理管理的所有安装源中的软件包, 相当于 `apt-cache dumpavail` 或者 `apt-cache dump`(仅缓存) 或者 `apt-cache pkgnames`
+sudo pacman -Sl
+
+# 列出已安装的软件包, 相当于 `dpkg --list | grep ^i`
+sudo pacman -Q
+
+# 列出已安装, 但已不在任何安装源中提供的软件包, 相当于 `deborphan`
+sudo pacman -Qm
+
+# 列出所有本地已安装的软件包及其版本, 相当于 `dpkg -l`
+sudo pacman -Q
+
+# 在本地已安装的软件包中搜索软件包或依赖项, 相当于 `aptitude search '~i(~n $name|~d $description)'`
+sudo pacman -Qs '<keyword>'
+
+# 列出已不被需要的依赖项, 相当于 `deborphan -anp1`
+sudo pacman -Qt
+
+# 列出不作为依赖且手动安装的软件包, 相当于 `apt-mark showmanual`
+sudo pacman -Qe
+
+# 列出作为依赖且自动安装的软件包, 相当于 `apt-mark showauto`
+sudo pacman -Qd
+
+# 给定一个软件包, 并查询该软件包是哪些软件包的前置安装要求, 相当于 `apt-cache rdepends <pkg_name>` 或者 `aptitude search ~D$pattern`
+sudo pacman -Sii '<pkg_name>'
+
+# 给定一个软件包, 并查询依赖于此软件包的软件包, 相当于 `apt-cache depends <pkg_name>` 或者 `apt-cache show <pkg_name>`
+sudo pacman -Qi '<pkg_name>'
+
+# 给定一个软件包, 并查询依赖于此软件包的软件包, 相当于 `apt-cache depends <pkg_name>` 或者 `apt-cache show <pkg_name>`
+sudo pacman -Si '<pkg_name>'
+
+# 配置安装源管理器, 相当于 `$EDITOR /etc/apt/sources.list`
+sudo $EDITOR /etc/pacman.conf
+
+# 向系统添加新的安装源, 相当于 `apt-cdrom add`
+sudo $EDITOR /etc/pacman.conf
+
+# 刷新安装源信息, 相当于 `apt-get update`
+sudo pacman -Sy
+
+# 查询所有系统中的安装源, 相当于 `apt-cache policy`
+less /etc/pacman.d/mirrorlist
+
+# 查询某个repo内包含的软件包
+paclist '<repo>'
+
+# 将软件包标记为锁定状态, 禁止它被修改. 请修改文件中的 IgnorePkg 字段, 相当于 `apt-mark hold <pkg_name>`
+sudo $EDITOR /etc/pacman.conf
+
+# 移除软件包锁定状态. 请修改文件中的 IgnorePkg 字段, 相当于 `apt-mark unhold <pkg_name>`
+sudo $EDITOR /etc/pacman.conf
+
+# 列出所有被标记为锁定状态的软件包, 相当于 `less /etc/apt/preferences`
+less /etc/pacman.conf
+
+# 将软件包标记为禁止更改, 避免它被软件包自动升级、降级或覆盖, 请修改文件中的 HoldPkg 及 IgnorePkg 字段, 相当于 `$EDITOR /etc/apt/preferences` 或者 `apt-cache policy`
+sudo $EDITOR /etc/pacman.conf
+
+# 验证软件包, 相当于 `debsums`
+sudo pacman -Qk
+
+# 重新安装软件包, 相当于 `apt install --reinstall <pkg_name_installed>`
+sudo pacman -S '<pkg_name_installed>'
+
+# 验证系统中软件包的依赖关系, 相当于 `apt-get check`
+sudo pacman -Dk
+
+# 修复pacman的依赖关系, 相当于 `apt-get --fix-broken && aptitude install`
+sudo pacman -Dk
+
+# 修复共享库的依赖关系, 相当于 `apt-get --fix-broken && aptitude install`
+findbrokenpkgs # 由AUR提供
+
+# 修复共享库的依赖关系, 相当于 `apt-get --fix-broken && aptitude install`
+lddd # 由devtools包提供
+
+# 从命令行中读入软件包, 而不从软件包管理数据库中安装, 相当于 `dpkg -I <pkg_name>`
+sudo pacman -Qp '<pkg_name>'
+
+# 查询软件包中包含的文件, 相当于 `dpkg -c <pkg_name>`
+sudo pacman -Qpl '<pkg_name>'
+
+# 安装本地软件包, 相当于 `apt install <pkg_file>`
+sudo pacman -U '<pkg_file>'
+
+# 安装本地软件包, 并利用软件包管理器自动解决依赖关系, 相当于 `debi <pkg_file>`
+sudo pacman -U '<pkg_file>'
+
+# 将软件包文件放到系统软件包缓存中(经常在debug时用到), 相当于 `apt-cache add <pkg_file>`
+sudo cp '<pkg_file>' /var/cache/pacman/pkg/
+
+# 将软件包文件解包, 相当于 `dpkg-deb -x <pkg_file>`
+tar -xf '<pkg_file>'
+
+# 根据软件包信息, 安装或移除构建此软件包所需要的软件包, 相当于 `apt-get build-dep <pkg_name>`
+makepkg -seoc '<pkg_name>' # Please use this with [ABS](https://wiki.archlinux.org/index.php/Arch_Build_System)
+
+# 下载软件包的源码, 相当于 `apt-get source <pkg_name>` 或者 `debcheckout`
+makepkg -o '<pkg_name>' # 请与ABS配合使用(https://wiki.archlinux.org/index.php/Arch_Build_System)
+
+# 构建软件包, 相当于 `debuild`
+makepkg -s
+
+# 检查潜在的软件包构建问题, 相当于 `lintian`
+namcap
+
+$ pkg_name_installed: sudo pacman -Qe

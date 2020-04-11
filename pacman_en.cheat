@@ -34,10 +34,10 @@ sudo pacman -S --asdeps '<pkg_name>'
 sudo pacman -Sw '<pkg_name>'
 
 # Show a log of actions taken by the software management, equal to `less /var/log/dpkg.log`
-less /var/log/pacman.log
+sudo less /var/log/pacman.log
 
 # Get a dump of the whole system information, equal to `apt-cache stats`
-less /var/lib/pacman/local
+sudo less /var/lib/pacman/local
 
 # Show all or most information about a package, equal to `apt show <pkg_name>` or `apt-cache policy <pkg_name>`
 sudo pacman -Si '<pkg_name>'
@@ -141,7 +141,7 @@ sudo $EDITOR /etc/pacman.conf
 # Verify package(s), equal to `debsums`
 sudo pacman -Qk
 
-# Reinstall given package, equal to `	apt install --reinstall <pkg_name_installed>`
+# Reinstall given package, equal to `apt install --reinstall <pkg_name_installed>`
 sudo pacman -S '<pkg_name_installed>'
 
 # Verify dependencies of the complete system, equal to `apt-get check`
@@ -156,7 +156,7 @@ findbrokenpkgs # from AUR
 # Use some magic to fix broken dependencies in a system for shared library level, equal to `apt-get --fix-broken && aptitude install`
 lddd # from devtools
 
-# Query a package supplied on the command line rather than an entry in the package management database, equal to `	dpkg -I <pkg_name>`
+# Query a package supplied on the command line rather than an entry in the package management database, equal to `dpkg -I <pkg_name>`
 sudo pacman -Qp '<pkg_name>'
 
 # List the contents of a package file, equal to `dpkg -c <pkg_name>`
