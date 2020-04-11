@@ -1,0 +1,60 @@
+% brew, cask
+
+# 更新brew仓库
+brew update
+
+# 更新已安装的软件包
+brew upgrade
+
+# 查询软件包信息
+brew info <package>
+
+# 查询cask软件包信息
+brew cask info <casks>
+
+# 安装软件包
+brew install <package>
+
+# 安装cask软件包
+brew cask install <casks>
+
+# 重新安装软件包
+brew reinstall <package>
+
+# 重新安装cask软件包
+brew reinstall <caskinstalled>
+
+# 移除软件包
+brew uninstall <installed>
+
+# 移除cask软件包
+brew cask uninstall <caskinstalled>
+
+# 修改软件包配置
+brew edit <package>
+
+# 修改cask软件包配置
+brew cask edit <casks>
+
+# 自动清理
+brew cleanup
+
+# 软链接软件包
+brew link <installed>
+
+# 强制软链接软件包(删除现有的软连接, 并重新创建指定软件包的软链接)
+brew link --overwrite <installed>
+
+# 强制软链接keg-only软件包
+brew link --force <installed>
+
+# brew健康检查
+brew doctor
+
+# 修复brew目录权限
+sudo chown -R $(whoami):admin /usr/local
+
+$ package: brew search
+$ casks: brew search --casks
+$ installed: brew list
+$ caskinstalled: brew cask list
