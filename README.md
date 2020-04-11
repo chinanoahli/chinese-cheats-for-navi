@@ -9,4 +9,6 @@ Chinese cheats for navi.
 
 + 将本项目clone到navi的cheat目录
 
-  - 如 macOS `cd ~/Library/Application\ Support/navi/cheats && git clone https://github.com/chinanoahli/chinese-cheats-for-navi.git`
+  - macOS `cd ~/Library/Application\ Support/navi/cheats && git clone https://github.com/chinanoahli/chinese-cheats-for-navi.git`
+
+  - Linux `cd $HOME/.local/share/navi/cheats && git clone https://github.com/chinanoahli/chinese-cheats-for-navi.git`
