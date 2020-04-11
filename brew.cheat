@@ -36,6 +36,42 @@ brew edit <package>
 # 修改cask软件包配置
 brew cask edit <casks>
 
+# 当前用户, 列出所有由brew安装的服务
+brew services list
+
+# root用户, 列出所有由brew安装的服务
+sudo brew services list
+
+# 当前用户, 运行指定服务, 且不注册为登录自动启动
+brew services run <brewservice>
+
+# root用户, 运行指定服务, 且不注册为开机自动启动
+sudo brew services run <brewservice>
+
+# 当前用户, 立即运行指定服务， 且注册为登录自动启动
+brew services start <brewservice>
+
+# root用户, 立即运行指定服务， 且注册为开机自动启动
+sudo brew services start <brewservice>
+
+# 当前用户, 立即停止指定服务， 且取消登录自动启动
+brew services stop <brewservice>
+
+# root用户, 立即停止指定服务， 且取消开机自动启动
+sudo brew services stop <brewservice>
+
+# 当前用户, (如有必要)先停止指定服务, 那后启动该服务, 且注册为登录自动启动
+brew services restart <brewservice>
+
+# root用户, (如有必要)先停止指定服务, 那后启动该服务, 且注册为开机自动启动
+sudo brew services restart <brewservice>
+
+# 当前用户, 移除所有未注册的服务
+brew services cleanup
+
+# root用户, 移除所有未注册的服务
+sudo brew services cleanup
+
 # 自动清理
 brew cleanup
 
