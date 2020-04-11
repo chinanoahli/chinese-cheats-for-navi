@@ -67,7 +67,7 @@ brew services restart <brewservice>
 sudo brew services restart <brewservice>
 
 # 当前用户, 移除所有未注册的服务
-brew services cleanup
+$brewservice: brew services list | awk '{if (NR>1){printf "%s\n", $1}}'brew services cleanup
 
 # root用户, 移除所有未注册的服务
 sudo brew services cleanup
@@ -94,3 +94,4 @@ $ package: brew search
 $ casks: brew search --casks
 $ installed: brew list
 $ caskinstalled: brew cask list
+$ brewservice: brew services list | awk '{if (NR>1){printf "%s\n", $1}}'
