@@ -1,0 +1,6 @@
+% 辞典名称, 辞典描述
+
+# Eject volume 命令描述，下一行紧跟命令，参数可以参考最后一行进行扩展
+diskutil eject '<eject_vol>'
+
+$ eject_vol: find /Volumes ! -path /Volumes -maxdepth 1 -type d  -name "*"
