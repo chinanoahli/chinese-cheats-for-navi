@@ -22,4 +22,4 @@ scp -i '<awspem>' '<localfile>' <awsuser>@<awshost>:'<awspath>'
 scp -i '<awspem>' <awsuser>@<awshost>:'<awsfile>' '<localfile>'
 
 $ pubkey: find ~/.ssh ! -path ~/.ssh -maxdepth 1 -name "*"
-$ awspem: find . ! -path . -maxdepth 1 -name "*.pem"
+$ awspem: ls *.pem
