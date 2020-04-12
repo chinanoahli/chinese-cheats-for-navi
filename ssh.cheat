@@ -1,0 +1,25 @@
+% ssh, scp
+
+# 以<remoteuser>的身份登录远程主机<remotehost>
+ssh <remoteuser>@<remotehost>
+
+# 将文件<localfile>复制到远程主机<remotehost>, <remoteuser>用户的<remotepath>中
+scp '<localfile>' <remoteuser>@<remotehost>:'<remotepath>'
+
+# 将远程主机<remotehost>上的文件<remotefile>, 以<remoteuser>的身份, 复制到本地目录<localpath>中
+scp <remoteuser>@<remotehost>:'<remotefile>' '<localpath>'
+
+# 将公钥身份写入远程主机<remotehost>, <remoteuser>用户的`authorized_keys`文件中
+ssh-copy-id -i <pubkey> <remoteuser>@<remotehost>
+
+# 使用<awspem>作为证书, 以<awsuser>的身份登录远程AWS主机<awshost>
+ssh -i '<awspem>' <awsuser>@<awshost>
+
+# 使用<awspem>作为证书, 将文件<localfile>复制到远程AWS主机<awshost>, <awsuser>用户的<awspath>中
+scp -i '<awspem>' '<localfile>' <awsuser>@<awshost>:'<awspath>'
+
+# 使用<awspem>作为证书, 将远程AWS主机<awshost>上的文件<awsfile>, 以<awsuser>用户的身份, 复制到本地目录<localpath>中
+scp -i '<awspem>' <awsuser>@<awshost>:'<awsfile>' '<localfile>'
+
+$ pubkey: find ~/.ssh ! -path ~/.ssh -maxdepth 1 -name "*"
+$ awspem: find . ! -path . -maxdepth 1 -name "*.pem"
