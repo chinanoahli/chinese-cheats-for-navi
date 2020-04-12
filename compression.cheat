@@ -1,0 +1,32 @@
+% compression
+
+# 将文件(夹)<file_or_dir>打包成<package>.tar
+tar cf <package_name>.tar <file_or_dir>
+
+# 将<package>解包的本目录
+tar xf <tar_file>
+
+# 将文件(夹)<file_or_dir>用GZip打包并压缩成<package>.tar.gz
+tar czf <package_name>.tar.gz <file_or_dir>
+
+# 解包GZip(*.tar.gz)文件到本目录
+tar xzf <targz_file>
+
+# 用GZip压缩文件(夹)
+gzip <file_or_dir>
+
+# 解包GZip文件到本目录
+gzip -d <gz_file>
+
+# 用XZ压缩文件
+xz -9 <normal_file>
+
+# 解包XZ文件到本目录
+xz --decompress <xz_file>
+
+$ tar_file: ls *.tar
+$ targz_file: ls *.tar.gz
+$ gz_file: ls *.gz
+$ xz_file: ls *.xz
+$ file_or_dir: find . ! -path . -maxdepth 1 ! -name "*.tar" ! -name "*.gz" ! -name "*.xz"
+$ normal_file: find . ! -path . -type f -maxdepth 1 ! -name "*.tar" ! -name "*.gz" ! -name "*.xz"
