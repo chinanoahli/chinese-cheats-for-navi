@@ -1,12 +1,12 @@
 % compression
 
-# 将文件(夹)<file_or_dir>打包成<package>.tar
+# 将文件(夹)<file_or_dir>打包成<package_name>.tar
 tar cf <package_name>.tar <file_or_dir>
 
 # 将<package>解包的本目录
 tar xf <tar_file>
 
-# 将文件(夹)<file_or_dir>用GZip打包并压缩成<package>.tar.gz
+# 将文件(夹)<file_or_dir>用GZip打包并压缩成<package_name>.tar.gz
 tar czf <package_name>.tar.gz <file_or_dir>
 
 # 解包GZip(*.tar.gz)文件到本目录
