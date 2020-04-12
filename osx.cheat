@@ -1,6 +1,6 @@
-% osx, mac os, new
+% osx, mac os
 
-# 将文件(夹)<file_or_dir>复制到<target_path>并移除`@`属性
+# 将文件(夹)<file_or_dir>复制到<target_path>并移除所有目标文件和文件夹的`@`属性
 cp -RX '<file_or_dir>' '<target_path>'
 
 # 移除文件(夹)<file_or_dir>的`@`属性
@@ -37,6 +37,7 @@ defaults write com.apple.finder CreateDesktop -bool false; \
 # 设置壁纸
 osascript -e 'tell application "Finder" to set desktop picture to POSIX file "<image_path>"'
 
+$ file_or_dir: ls
 $ image_path: find $HOME -maxdepth 3 -name "*.jpg" -o -name "*.jpeg" -o -name "*.png"
 $ disk_dev: ls /dev/disk*
 $ eject_vol: find /Volumes ! -path /Volumes -maxdepth 1 -type d  -name "*"
