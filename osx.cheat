@@ -1,5 +1,11 @@
 % osx, mac os
 
+# 将文件(夹)<file_or_dir>复制到<target_path>并移除`@`属性
+cp -RX '<file_or_dir>' '<target_path>'
+
+# 移除文件(夹)<file_or_dir>的`@`属性
+xattr -rc '<file_or_dir>'
+
 # 锁定屏幕
 pmset displaysleepnow
 
