@@ -45,5 +45,5 @@ ln -s <file_or_dir> <target_path>
 # 将文件<file>硬链接到<target_path>
 ln <file> <target_path>
 
-$ file: find . ! -path . -maxdepth 1
-$ file_or_dir: find . ! -path . -maxdepth 1
+$ file_or_dir: ls
+$ file: find . ! -path . -maxdepth 1 -type f
