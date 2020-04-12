@@ -12,13 +12,13 @@ tar czf <package_name>.tar.gz <file_or_dir>
 # 解包GZip(*.tar.gz)文件到本目录
 tar xzf <targz_file>
 
-# 用GZip压缩文件(夹)
-gzip <file_or_dir>
+# 用GZip压缩文件
+gzip <normal_file>
 
 # 解包GZip(*.gz)文件到本目录
 gzip -d <gz_file>
 
-# 用XZ压缩文件
+# 用XZ压缩文件(不保留原文件)
 xz -9 <normal_file>
 
 # 解包XZ文件到本目录
@@ -29,4 +29,4 @@ $ targz_file: ls *.tar.gz
 $ gz_file: ls *.gz
 $ xz_file: ls *.xz
 $ file_or_dir: find . ! -path . -maxdepth 1 ! -name "*.tar" ! -name "*.gz" ! -name "*.xz"
-$ normal_file: find . ! -path . -type f -maxdepth 1 ! -name "*.tar" ! -name "*.gz" ! -name "*.xz"
+$ normal_file: find . ! -path . -type f -maxdepth 1 ! -name "*.gz" ! -name "*.xz"
