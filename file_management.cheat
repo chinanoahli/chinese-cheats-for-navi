@@ -1,0 +1,25 @@
+% file management, *unix
+
+# 复制文件(夹)<file_or_dir>到<target_path>
+cp -r '<file_or_dir>' '<target_path>'
+
+# 复制(提示覆盖)文件(夹)<file_or_dir>到<target_path>
+cp -fi '<file_or_dir>' '<target_path>'
+
+# 复制(强制覆盖)文件(夹)<file_or_dir>到<target_path>
+cp -f '<file_or_dir>' '<target_path>'
+
+# 如果复制对象<file_or_dir>是指向目录的软连接, 则在目标<target_path>中为它创建实体目录, 复制时不改变对象内部的文件, 目录以及软连接
+cp -RH <file_or_dir> <target_path>
+
+# 解引所有软连接, 并复制文件(夹)<file_or_dir>到<target_path>
+cp -RL <file_or_dir> <target_path>
+
+# 删除文件(夹)
+rm -r '<file_or_dir>'
+
+# 强制删除文件(夹)(进行确认)
+rm -ri '<file_or_dir>'
+
+# 强制删除文件(夹)(不进行确认)
+rm -rf '<file_or_dir>'
